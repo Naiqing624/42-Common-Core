@@ -16,3 +16,10 @@ char    *ft_strchr(const char *s, int c)
     }
     return (NULL);
 }
+
+int main(void)
+{
+    const char str[] = "hello";
+    printf("%s", ft_strchr(str, 'l'));
+    return (0);
+}

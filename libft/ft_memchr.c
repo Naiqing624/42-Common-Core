@@ -15,3 +15,13 @@ void    *ft_memchr(const void *s, int c, size_t n)
     }
     return (NULL);
 }
+
+int main(void)
+{
+    const char str[] = "Hello";
+    char *result;
+
+    result = ft_memchr(str, 'l', 6);
+    printf("%ld\n", result - str);
+    return (0);
+}

@@ -8,3 +8,12 @@ int     ft_tolower(int c)
     }
     return (c);
 }
+
+/*int main(void)
+{
+    char a;
+
+    a = 'A';
+    a = ft_tolower(a);
+    ft_putchar_fd(a, 1);
+}*/

@@ -29,7 +29,7 @@ static char *word_dup(char const *s, size_t start, size_t finish)
     size_t len;
 
     len = finish - start;
-    words = (char **)malloc((len + 1) * sizeof(char));
+    words = (char *)malloc((len + 1) * sizeof(char));
     if (!words)
     {
         return (NULL);
@@ -48,7 +48,7 @@ char **ft_split(char const *s, char c)
     size_t  i;
 
     words = count_words(s, c);
-    split = (char *)malloc((words + 1) * sizeof(char *));
+    split = (char **)malloc((words + 1) * sizeof(char *));
     if (!split)
     {
         return (NULL);

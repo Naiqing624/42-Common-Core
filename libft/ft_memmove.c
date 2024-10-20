@@ -25,3 +25,15 @@ void    *ft_memmove(void *dest, void *src, size_t len)
     }
     return (dest);
 }
+
+int main(void)
+{
+    char    str[] = "hello, world!";
+
+    /*ft_memmove(str + 7, str, 5);
+    printf("%s\n", str);*/
+    ft_memmove(str, str + 7, 6);
+    str[6] = '\0';
+    printf("%s", str);
+
+}

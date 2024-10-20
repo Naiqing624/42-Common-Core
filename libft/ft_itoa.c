@@ -36,14 +36,18 @@ char    *ft_itoa(int n)
         str[0] = '-';
         nbr = -nbr;
     }
-    while (len > 0)
+    while (len > 0 && nbr != 0)
     {
-        if (nbr == 0 && str[len - 1] == '-')
-        {
-            break;
-        }
         str[--len] = nbr % 10 + '0';
         nbr /= 10;
     }
     return (str);
+}
+
+int main(void)
+{
+    int i = -123469821;
+    char    *a = ft_itoa(i);
+    ft_putstr_fd(a, 1);
+    return (0);
 }

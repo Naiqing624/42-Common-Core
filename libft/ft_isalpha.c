@@ -8,3 +8,12 @@ int ft_isalpha(int a)
     }
     return (0);
 }
+
+int main(void)
+{
+    char a;
+    
+    a = 'q';
+    a = ft_isalpha(a);
+    ft_putnbr_fd(a, 1);
+}

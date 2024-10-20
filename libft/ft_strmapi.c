@@ -26,3 +26,32 @@ char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
     return (str);
 }
 
+#include <ctype.h>
+
+char toggle_case_by_index(unsigned int index, char c)
+{
+    if (index % 2 == 0)
+        return (char)toupper(c); 
+    else
+        return (char)tolower(c); 
+}
+
+int main()
+{
+    char original[] = "HELLO, WORLD!";
+    char *result = ft_strmapi(original, toggle_case_by_index);
+    
+    if (result)
+    {
+        printf("Original: %s\n", original);
+        printf("Modified: %s\n", result);
+        free(result);
+    }
+    else
+    {
+        printf("Error allocating memory!\n");
+    }
+    
+    return 0;
+}
+

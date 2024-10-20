@@ -14,3 +14,11 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
     }
     return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
+
+int main(void)
+{
+    const char str1[] = "Hello";
+    const char str2[] = "Holle";
+    int result = ft_strncmp(str1, str2, 5);
+    printf("%d", result);
+}

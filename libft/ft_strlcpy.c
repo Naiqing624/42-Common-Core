@@ -1,6 +1,6 @@
 #include "libft.h"
 
-size_t  ft_strlcpy(char *dest, char *src, size_t dstsize)
+size_t  ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {
     size_t  src_len;
     size_t  i;
@@ -18,4 +18,15 @@ size_t  ft_strlcpy(char *dest, char *src, size_t dstsize)
     }
     dest[i] = '\0';
     return (src_len);
+}
+
+int main(void)
+{
+    char str[] = "hello";
+    char str1[20];
+
+    ft_strlcpy(str1, str, sizeof(str1)); 
+    printf("Copied string: %s\n", str1);
+
+    return (0);
 }

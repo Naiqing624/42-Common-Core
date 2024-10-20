@@ -20,10 +20,20 @@ char    *ft_strtrim(char const *s1, char const *set)
     {
         start++;
     }
-    while (s1[end] && ft_strchr(set, s1[end - 1]))
+    while (end > start && ft_strchr(set, s1[end - 1]))
     {
         end--;
     }
     trim = ft_substr(s1, start, end - start);
     return (trim);
+}
+
+int main(void)
+{
+    char *s1 = "!!!Hello, World!!!";
+    char *set = "!";
+    char *result;
+    result = ft_strtrim(s1, set);
+    printf("'%s'\n", result);
+    free(result);
 }

@@ -20,3 +20,12 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
     }
     return (NULL);
 }
+
+int main(void)
+{
+    char str1[] = "hello, world";
+    char str2[] = "ello";
+
+    printf("%s", ft_strnstr(str1, str2, 10));
+    return(0);
+}

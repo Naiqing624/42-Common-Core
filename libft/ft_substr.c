@@ -28,3 +28,10 @@ char    *ft_substr(char const *s, unsigned int start, size_t len)
     ft_strlcpy(substr, s + start, actuel_len + 1);
     return (substr);
 }
+
+int main(void)
+{
+    char *str1 = "Hello";
+    char *substr = ft_substr(str1, 2, 3);
+    printf("%s", substr);
+}
