@@ -1,53 +1,75 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/23 09:04:50 by nacao             #+#    #+#             */
+/*   Updated: 2024/10/24 08:23:18 by nacao            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static size_t get_len(int n)
+static int	ft_get_size(int n)
 {
-    size_t  len;
+	int	size;
 
-    len = 0;
-    if (n <= 0)
-    {
-        len++;
-    }
-    while (n != 0)
-    {
-        len++;
-        n /= 10;
-    }
-    return (len);
+	size = 0;
+	if (n <= 0)
+		size++;
+	while (n != 0)
+	{
+		n = n / 10;
+		size++;
+	}
+	return (size);
 }
 
-char    *ft_itoa(int n)
+static void	ft_fill_str(int size, int nbr, int n, char *str)
 {
-    char    *str;
-    size_t  len;
-    long    nbr;
-
-    nbr = n;
-    len = get_len(n);
-    str = (char *)malloc((len + 1) * sizeof(char));
-    if (!str)
-    {
-        return (NULL);
-    }
-    str[len] = '\0';
-    if (nbr < 0)
-    {
-        str[0] = '-';
-        nbr = -nbr;
-    }
-    while (len > 0 && nbr != 0)
-    {
-        str[--len] = nbr % 10 + '0';
-        nbr /= 10;
-    }
-    return (str);
+	while (size > nbr)
+	{
+		str[size - 1] = n % 10 + '0';
+		n = n / 10;
+		size--;
+	}
 }
 
+char	*ft_itoa(int n)
+{
+	int		nbr;
+	int		size;
+	char	*str;
+
+	nbr = 0;
+	size = ft_get_size(n);
+	str = (char *)malloc(sizeof(char) * size + 1);
+	if (!str)
+		return (0);
+	if (n == -2147483648)
+	{
+		str[0] = '-';
+		str[1] = '2';
+		n = 147483648;
+		nbr = 2;
+	}
+	if (n < 0)
+	{
+		str[0] = '-';
+		nbr = 1;
+		n = -n;
+	}
+	ft_fill_str(size, nbr, n, str);
+	str[size] = '\0';
+	return (str);
+}
+/*
 int main(void)
 {
     int i = -123469821;
     char    *a = ft_itoa(i);
     ft_putstr_fd(a, 1);
     return (0);
-}
+}*/

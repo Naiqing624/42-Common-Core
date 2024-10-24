@@ -1,33 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 08:36:17 by nacao             #+#    #+#             */
+/*   Updated: 2024/10/23 11:17:52 by nacao            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-    int result;
-    int sign;
+	int	result;
+	int	sign;
 
-    result = 0;
-    sign = 1;
-    while ((*str >= 9 && *str <= 13) || *str == 32)
-    {
-        str++;
-    }
-    if (*str == '+' || *str == '-')
-    {
-        if (*str == '-')
-        {
-            sign = -1;
-        }
-        str++;
-    }
-    while (*str >= '0' &&
-     *str <= '9')
-    {
-        result = result * 10 + (*str - '0');
-        str++;
-    }
-    return (result * sign);
+	result = 0;
+	sign = 1;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+	{
+		str++;
+	}
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+		{
+			sign = -1;
+		}
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str - '0');
+		str++;
+	}
+	return (result * sign);
 }
-
+/*
 int main(void)
 {
     const char *test1 = "42";
@@ -51,4 +62,4 @@ int main(void)
     printf("ft_atoi(\"%s\") = %d\n", test9, ft_atoi(test9));
 
     return 0;
-}
+}*/
