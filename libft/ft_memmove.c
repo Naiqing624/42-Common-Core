@@ -6,7 +6,7 @@
 /*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:03:40 by nacao             #+#    #+#             */
-/*   Updated: 2024/10/22 10:11:03 by nacao            ###   ########.fr       */
+/*   Updated: 2024/10/25 10:06:12 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ void	*ft_memmove(void *dest, void *src, size_t len)
 	unsigned char	*d;
 	unsigned char	*s;
 
+	if (!dest && !src)
+		return (NULL);
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
-	if (d < s)
+	if (s < d && d < s + len)
 	{
 		while (len--)
-			*d++ = *s++;
+			d[len] = s[len];
 	}
 	else
 	{
-		d += len;
-		s += len;
 		while (len--)
-			*(--d) = *(--s);
+			*(d++) = *(s++);
 	}
 	return (dest);
 }

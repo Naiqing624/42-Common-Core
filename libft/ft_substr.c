@@ -6,7 +6,7 @@
 /*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 08:23:33 by nacao             #+#    #+#             */
-/*   Updated: 2024/10/24 15:18:37 by nacao            ###   ########.fr       */
+/*   Updated: 2024/10/25 09:34:02 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(substr, s + start, actuel_len + 1);
 	return (substr);
 }
-
+/*
 int main(void)
 {
     char *str1 = "Hello";
     char *substr = ft_substr(str1, 2, 3);
     printf("%s", substr);
-}
+}*/

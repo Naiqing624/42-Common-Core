@@ -6,7 +6,7 @@
 /*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:15:27 by nacao             #+#    #+#             */
-/*   Updated: 2024/10/23 11:02:28 by nacao            ###   ########.fr       */
+/*   Updated: 2024/10/25 10:09:33 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	src_len = ft_strlen (src);
 	if (size == 0)
 		return (src_len);
-	if (!dest)
-		return (src_len + size);
 	dest_len = ft_strlen(dest);
 	if (size <= dest_len)
 	{

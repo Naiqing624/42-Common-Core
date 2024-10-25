@@ -6,7 +6,7 @@
 /*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 08:56:03 by nacao             #+#    #+#             */
-/*   Updated: 2024/10/24 10:09:37 by nacao            ###   ########.fr       */
+/*   Updated: 2024/10/25 10:37:00 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**ft_split(char const *s, char c)
 	size_t	words;
 	size_t	i;
 
-	ords = countw_words(s, c);
+	words = count_words(s, c);
 	split = (char **)malloc((words + 1) * sizeof(char *));
 	if (!split)
 		return (NULL);
