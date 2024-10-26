@@ -1,23 +1,19 @@
 #include "ft_printf.h"
+#include "libft/libft.h"
 #include <stdio.h>
 
-int	ft_printchar(int c)
+int     ft_printchar(int c)
 {
-    if (c != 0)
-        return (write(1, &c, 1));
-    return (1);
+    return (write(1, &c, 1));
 }
 
-
-int	ft_formats(va_list args, const char format)
+int     ft_formats(va_list args, const char format)
 {
     int	print_length;
 
     print_length = 0;
     if (format == 'c')
-    {
         print_length += ft_printchar(va_arg(args, int));
-    }
     else if (format == 's')
         print_length += ft_printstr(va_arg(args, char *));
     else if (format == 'p')
@@ -33,28 +29,26 @@ int	ft_formats(va_list args, const char format)
     return (print_length);
 }
 
-
-
-int	ft_printf(const char *str, ...)
+int     ft_printf(const char *str, ...)
 {
-	int		i;
-	va_list	args;
-	int		print_length;
+    int		i;
+    va_list	args;
+    int		print_length;
 
-	i = 0;
-	print_length = 0;
-	va_start(args, str);
-	while (str[i])
-	{
-		if (str[i] == '%')
-		{
-			print_length += ft_formats(args, str[i + 1]);
-			i++;
-		}
-		else
-			print_length += ft_printchar(str[i]);
-		i++;
-	}
-	va_end(args);
-	return (print_length);
+    i = 0;
+    print_length = 0;
+    va_start(args, str);
+    while (str[i])
+    {
+        if (str[i] == '%' && str[i + 1] && ft_strchr("cspdiuxX%", str[i + 1]))
+        {
+            print_length += ft_formats(args, str[i + 1]);
+            i++;
+        }
+        else
+            print_length += ft_printchar(str[i]);
+        i++;
+    }
+    va_end(args);
+    return (print_length);
 }
