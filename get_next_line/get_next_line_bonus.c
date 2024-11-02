@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 13:39:25 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/01 13:39:25 by marvin           ###   ########.fr       */
+/*   Created: 2024/11/02 16:01:35 by marvin            #+#    #+#             */
+/*   Updated: 2024/11/02 16:01:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static int	read_buffer(int fd, char **stash, char *buffer)
 {
@@ -83,7 +83,7 @@ static void	remove_result(char **stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash[MAX_FILES_OPENED];
 	char		*result;
 	char		*buffer;
 	int			byte;
@@ -94,42 +94,65 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		return (0);
 	byte = 1;
-	while (ft_strchr(stash, '\n') == NULL && byte > 0)
-		byte = read_buffer(fd, &stash, buffer);
+	while (ft_strchr(stash[fd], '\n') == NULL && byte > 0)
+		byte = read_buffer(fd, &stash[fd], buffer);
 	free (buffer);
 	if (byte == -1)
 		return (NULL);
-	if (ft_strlen(stash) == 0)
+	if (ft_strlen(stash[fd]) == 0)
 		return (NULL);
-	get_result(&stash, &result);
-	remove_result(&stash);
+	get_result(&stash[fd], &result);
+	remove_result(&stash[fd]);
 	return (result);
 }
 
 #include <fcntl.h>
+#include <stdio.h>
 
-int main()
+int main(int argc, char **argv)
 {
-    int fd;
-    char *line;
-
-    fd = open("test1.txt", O_RDONLY);
-    if (fd == -1)
+    if (argc < 2)
     {
-        perror("Error opening file");
+        printf("Usage: %s <filename1> <filename2> ...\n", argv[0]);
         return (1);
     }
 
-    //printf("File opened successfully.\n"); // 调试信息
-
-    while ((line = get_next_line(fd)) != NULL)
+    // 打开多个文件，并存储文件描述符
+    int fds[argc - 1];
+    for (int i = 1; i < argc; i++)
     {
-        printf("Read line: %s\n", line); // 输出每行
-        free(line);
+        fds[i - 1] = open(argv[i], O_RDONLY);
+        if (fds[i - 1] == -1)
+        {
+            perror("Error opening file");
+            return (1);
+        }
     }
 
-    close(fd);
-    printf("File closed.\n");
+    // 从每个文件逐行读取并打印
+    int files_remaining = argc - 1;
+    while (files_remaining > 0)
+    {
+        for (int i = 0; i < argc - 1; i++)
+        {
+            if (fds[i] != -1) // 仅处理未结束的文件
+            {
+                char *line = get_next_line(fds[i]);
+                if (line)
+                {
+                    printf("File %d: %s", i + 1, line);
+                    free(line);
+                }
+                else
+                {
+                    // 文件读取结束，关闭并标记为已完成
+                    close(fds[i]);
+                    fds[i] = -1;
+                    files_remaining--;
+                }
+            }
+        }
+    }
 
     return (0);
 }
