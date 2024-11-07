@@ -18,21 +18,40 @@ int	ft_putchar(char i)
 	return (1);
 }
 
+int	ft_strlen(const char *str)
+{
+	int	len;
+
+	len = 0;
+	while (str[len])
+	{
+		len++;
+	}
+	return (len);
+}
+
 int	ft_putstr(char *str)
 {
-	int	i;
+	int	len;
 
-	i = 0;
+	len = 0;
 	if (!*str)
 	{
 		write(1, "(null)", 6);
 		return (6);
 	}
-	while (str[i])
-	{
-		write(1, str[i], 1);
-		i++;
-	}
-	return (i);
+	len = ft_strlen(str);
+	write(1, str, len);
+	return (len);
 }
 
+int	ft_putnum(int n)
+{
+	size_t	len;
+	char	*str;
+
+	str = ft_itoa(n);
+	len = ft_putstr(str);
+	free(str);
+	return (len);
+}
