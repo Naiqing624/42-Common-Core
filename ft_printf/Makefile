@@ -16,7 +16,7 @@ CC =		cc
 
 CFLAGES =	-Wall -Wextra -Werror
 
-SRCS =		ft_printf.c ft_printf_utils.c ft_printf_unsigned.c ft_itoa.c ft_printf_p.c
+SRCS =		ft_printf.c ft_printf_utils.c ft_printf_unsigned.c ft_itoa.c ft_printf_p.c ft_printf_x.c
 
 OBJS =		$(SRCS:.c=.o)
 

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 16:26:06 by marvin            #+#    #+#             */
 /*   Updated: 2024/11/03 16:26:06 by marvin           ###   ########.fr       */
@@ -35,7 +35,7 @@ int	ft_putstr(char *str)
 	int	len;
 
 	len = 0;
-	if (!*str)
+	if (!str)
 	{
 		write(1, "(null)", 6);
 		return (6);
