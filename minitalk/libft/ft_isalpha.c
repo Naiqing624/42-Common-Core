@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 09:14:20 by nacao             #+#    #+#             */
-/*   Updated: 2024/11/15 10:42:20 by marvin           ###   ########.fr       */
+/*   Created: 2024/10/22 09:01:31 by nacao             #+#    #+#             */
+/*   Updated: 2024/10/22 09:18:43 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_isalpha(int a)
 {
-	size_t	len;
-
-	len = 0;
-	if (!lst)
-		return (NULL);
-	while (lst)
+	if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z'))
 	{
-		len++;
-		lst = lst->next;
+		return (1);
 	}
-	return (len);
+	return (0);
 }
+/*
+int main(void)
+{
+    char a;
+    
+    a = 'q';
+    a = ft_isalpha(a);
+    ft_putnbr_fd(a, 1);
+}*/

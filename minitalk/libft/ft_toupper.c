@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 09:14:20 by nacao             #+#    #+#             */
-/*   Updated: 2024/11/15 10:42:20 by marvin           ###   ########.fr       */
+/*   Created: 2024/10/22 10:40:03 by nacao             #+#    #+#             */
+/*   Updated: 2024/10/22 10:42:08 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_toupper(int c)
 {
-	size_t	len;
-
-	len = 0;
-	if (!lst)
-		return (NULL);
-	while (lst)
+	if (c >= 'a' && c <= 'z')
 	{
-		len++;
-		lst = lst->next;
+		c -= 32;
 	}
-	return (len);
+	return (c);
 }
+/*
+int main(void)
+{
+    char c;
+
+    c = 'a';
+    c = ft_toupper(c);
+    ft_putchar_fd(c, 1);
+}*/

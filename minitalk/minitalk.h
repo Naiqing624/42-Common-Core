@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   server.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 09:14:20 by nacao             #+#    #+#             */
-/*   Updated: 2024/11/15 10:42:20 by marvin           ###   ########.fr       */
+/*   Created: 2024/11/27 20:26:24 by marvin            #+#    #+#             */
+/*   Updated: 2024/11/27 20:26:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int	ft_lstsize(t_list *lst)
-{
-	size_t	len;
+# define SIGUSR1 10
+# define SIGUSR2 12
 
-	len = 0;
-	if (!lst)
-		return (NULL);
-	while (lst)
-	{
-		len++;
-		lst = lst->next;
-	}
-	return (len);
-}
+# include "libft/libft.h"
+# include "libft/ft_printf/ft_printf.h"
+# include <unistd.h>
+# include <signal.h>
+
+#endif

@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 09:14:20 by nacao             #+#    #+#             */
-/*   Updated: 2024/11/15 10:42:20 by marvin           ###   ########.fr       */
+/*   Created: 2024/10/22 09:36:56 by nacao             #+#    #+#             */
+/*   Updated: 2024/10/22 09:46:24 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_isprint(int a)
 {
-	size_t	len;
-
-	len = 0;
-	if (!lst)
-		return (NULL);
-	while (lst)
+	if (a > 31 && a < 127)
 	{
-		len++;
-		lst = lst->next;
+		return (1);
 	}
-	return (len);
+	return (0);
 }
+/*
+int	main(void)
+{
+	char	str;
+
+	str = '8';
+	if (ft_isprint(str))
+	{
+		printf("printable\n");
+	}
+	else
+	{
+		printf("not printable\n");
+	}
+	return (0);
+}*/

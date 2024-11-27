@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 09:14:04 by nacao             #+#    #+#             */
-/*   Updated: 2024/11/17 16:25:30 by marvin           ###   ########.fr       */
+/*   Created: 2024/10/22 09:48:28 by nacao             #+#    #+#             */
+/*   Updated: 2024/10/22 09:51:02 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_list	*tmp;
+	unsigned char	*ptr;
 
-	if (!lst || !f || !del)
-		return (NULL);
-	while (lst)
+	ptr = (unsigned char *)b;
+	while (len > 0)
 	{
-		tmp = (*f)(lst->content);
-		lst = lst->next;
+		*ptr = c;
+		ptr++;
+		len--;
 	}
-	return ;
+	return (b);
 }
+/*
+int main(void)
+{
+    char    str[] = "hello";
+    printf("%s\n", (char *)ft_memset(str, 'b', 2));
+    return (0);
+}*/
