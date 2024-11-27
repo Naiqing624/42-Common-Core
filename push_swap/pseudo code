@@ -1,0 +1,78 @@
+//Declare pointers to two data structures/linked lists, one for stack `a` and another for `b`
+	//Set both pointers to NULL to avoid undefined behaviour and indicate we're starting with empty stacks
+/*// 第一步：声明两个堆栈
+声明 stack_a 和 stack_b 为链表
+初始化 stack_a = NULL
+初始化 stack_b = NULL
+*/
+
+//Handle input count errors. Argument count must be 2 or more, and the second input must not be empty
+	//If input errors, return error
+/*// 第二步：处理输入错误
+如果 参数数量 < 2:
+    打印 "Error"
+    退出程序
+
+如果 第二个参数是空字符串:
+    打印 "Error"
+    退出程序
+*/
+
+//Handle both cases of input, whether a variable number of command line arguments, or as a string
+	//If the input of numbers is as a string, call split() to split the substrings
+/*// 第三步：解析输入的数字
+如果 输入是一个字符串:使用 split 函数将字符串按空格分割为多个数字
+否则: 将命令行参数逐个视为数字
+*/
+
+//Initialize stack `a` by appending each input number as a node to stack `a`
+	//Handle integer overflow, duplicates, and syntax errors, e.g. input must only contain digits, or `-` `+` signs
+		//If errors found, free stack `a` and return error
+	//Check for each input, if it is a long integer
+		//If the input is a string, convert it to a long integer 
+	//Append the nodes to stack `a`
+/*// 第四步：验证输入并初始化 stack_a
+对于 每个输入数字:
+    如果 输入不是整数（例如包含非法字符）:
+        打印 "Error"
+        退出程序
+
+    如果 输入超出 int 范围:
+        打印 "Error"
+        退出程序
+
+    如果 输入重复:
+        打印 "Error"
+        退出程序
+
+    将数字作为节点追加到 stack_a
+*/
+
+/*// 第五步：检查 stack_a 是否已排序
+如果 stack_a 已按升序排列:
+    直接退出程序（无需排序）
+*/
+
+//Check if stack `a` is sorted
+	//If not sorted, implement our sorting algorithm 
+		//Check for 2 numbers
+			//If so, simply swap the numbers
+		//Check for 3 numbers
+			//If so, implement our simple `sort three` algorithim
+		//Check if the stack has more than 3 numbers
+			//If so, implent our Turk Algorithm
+
+/*
+// 第六步：实现排序算法
+如果 stack_a 中只有两个数字:
+    执行 swap 操作交换两个数字
+否则 如果 stack_a 中有三个数字:
+    执行简单的三数字排序算法
+否则:
+    执行 Turk Algorithm
+*/
+
+//Clean up the stack
+/*// 第七步：释放堆栈内存
+释放 stack_a 和 stack_b 的所有节点
+*/
