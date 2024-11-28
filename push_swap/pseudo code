@@ -55,6 +55,11 @@
 
 //Check if stack `a` is sorted
 	//If not sorted, implement our sorting algorithm 
+
+/*// 第五步：检查 stack_a 是否已排序
+如果 stack_a 已按升序排列:
+    直接退出程序（无需排序）
+*/
 		//Check for 2 numbers
 			//If so, simply swap the numbers
 		//Check for 3 numbers
