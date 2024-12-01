@@ -1,7 +1,8 @@
 {
     "files.associations": {
-        "get_next_line.h": "c",
-        "ft_printf.h": "c",
-        "stdarg.h": "c"
-    }
+		"get_next_line.h": "c",
+		"ft_printf.h": "c",
+		"stdarg.h": "c",
+		"libft.h": "c"
+	}
 }
