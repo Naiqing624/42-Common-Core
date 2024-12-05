@@ -6,8 +6,20 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:17:45 by nacao             #+#    #+#             */
-/*   Updated: 2024/11/28 16:18:08 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/05 11:59:28 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
+
+int	main(int argc, char **argv)
+{
+	t_stack_node	*a;
+	t_stack_node	*b;
+
+	a = NULL;
+	b = NULL;
+	if (argc == 1 || (argc == 2))
+		return (1);
+	return (0);
+}
