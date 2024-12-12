@@ -3,6 +3,15 @@
 		"get_next_line.h": "c",
 		"ft_printf.h": "c",
 		"stdarg.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"push_swap.h": "c",
+		"so_long.h": "c",
+		"random": "c",
+		"cstdlib": "c",
+		"mlx_int.h": "c",
+		"fcntl.h": "c",
+		"stdlib.h": "c",
+		"string.h": "c",
+		"sstream": "c"
 	}
 }

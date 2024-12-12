@@ -31,24 +31,33 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 //handle errors
+int				is_syntax(char *str);
+void			free_stack(t_stack_node **stack);
+void			error_free(t_stack_node **stack);
 
 //Stack initiation
+void	stack_a_initia(t_stack_node **a, char **argv);
 
 //nodes initiation
 
 //Stack utils
 int				stack_len(t_stack_node *stack);
 t_stack_node	*last_stack(t_stack_node *stack);
+char			**ft_ssplit(char *str, char c);
+t_stack_node	*find_max(t_stack_node *stack);
+t_stack_node	*find_min(t_stack_node *stack);
 
 //Commands
-void	pa(t_stack_node **a, t_stack_node **b, bool print);
-void	pb(t_stack_node **a, t_stack_node **b, bool print);
-void	sa(t_stack_node **a, bool print);
-void	sb(t_stack_node **b, bool print);
-void	ss(t_stack_node **a, t_stack_node **b, bool print);
-void	ra(t_stack_node **a, bool print);
-void	rb(t_stack_node **b, bool print);
-void	rr(t_stack_node **a, t_stack_node **b, bool print);
+void			pa(t_stack_node **a, t_stack_node **b, bool print);
+void			pb(t_stack_node **a, t_stack_node **b, bool print);
+void			sa(t_stack_node **a, bool print);
+void			sb(t_stack_node **b, bool print);
+void			ss(t_stack_node **a, t_stack_node **b, bool print);
+void			ra(t_stack_node **a, bool print);
+void			rb(t_stack_node **b, bool print);
+void			rr(t_stack_node **a, t_stack_node **b, bool print);
+void			sort_three(t_stack_node **stack);
+
 
 //Algorhithms
 

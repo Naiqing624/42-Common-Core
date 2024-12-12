@@ -35,3 +35,48 @@ t_stack_node	*last_stack(t_stack_node *stack)
 		stack = stack->next;
 	return (stack);
 }
+
+bool	stack_sorted(t_stack_node *stack)
+{
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->nbr > stack->next->nbr)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
+}
+
+t_stack_node	*find_max(t_stack_node *stack)
+{
+	t_stack_node	*max;
+
+	if (!stack)
+		return (NULL);
+	max = stack;
+	while (stack)
+	{
+		if (stack->nbr > max->nbr)
+			max = stack;
+		stack = stack->next;
+	}
+	return (max);
+}
+
+t_stack_node	*find_min(t_stack_node *stack)
+{
+	t_stack_node	*min;
+
+	if (!stack)
+		return (NULL);
+	min = stack;
+	while (stack)
+	{
+		if (stack->nbr < min->nbr)
+			min = stack;
+		stack = stack->next;
+	}
+	return (min);
+}
