@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 09:55:24 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/16 13:43:13 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 15:06:57 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static void	swap(t_stack_node **head)
 	third = seconde->next;
 	first->next = seconde->next;
 	if (third)
-		third->prev = first;   
+		third->prev = first;
 	first->prev = seconde;
-	seconde->next= first;
+	seconde->next = first;
 	seconde->prev = NULL;
 	*head = seconde;
 }

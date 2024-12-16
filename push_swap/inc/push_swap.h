@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:56:04 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/16 13:10:29 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 15:04:06 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void			sort_stack(t_stack_node **a, t_stack_node **b);
 
 //Algorhithms
 void			move_a_to_b(t_stack_node **a, t_stack_node **b);
-void			before_push(t_stack_node **stack, t_stack_node *top_node, char stack_name);
+void			before_push(t_stack_node **s, t_stack_node *n, char c);
 void			move_b_to_a(t_stack_node **a, t_stack_node **b);
 
 #endif

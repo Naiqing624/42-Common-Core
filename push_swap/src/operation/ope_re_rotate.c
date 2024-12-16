@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:11:47 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/16 13:43:17 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 16:09:45 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 static void	re_rotate(t_stack_node **stack)
 {
-	t_stack_node	*last_node;
+	t_stack_node	*last;
+	t_stack_node	*prev;
 
 	if (!*stack || (*stack)->next)
-		return;
-	last_node = last_stack(*stack);
-	last_node->prev->next = NULL;
-	last_node->prev = NULL;
-	last_node->next = *stack;
-	*stack = last_node;
-	last_node->next->prev = last_node;
+		return ;
+	last = last_stack(*stack);
+    prev = last->prev;
+    if (prev)
+        prev->next = NULL;
+    last->prev = NULL;
+    last->next = *stack;
+    (*stack)->prev = last;
+    *stack = last;
 }
 
 void	rra(t_stack_node **a, bool print)

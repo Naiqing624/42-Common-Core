@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:03:11 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/16 14:20:29 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 16:35:25 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 	t_stack_node	*target_node;
 	long			best_match;
 
-	if (!a || !b)
-		return ;
 	while (b)
 	{
 		best_match = LONG_MAX;
+		target_node = NULL;
+		printf("为stack a 找到 b 的目标节点（差值最小）如果没有找到 则选择 b 的最大点");
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->nbr > b->nbr && current_a->nbr < best_match)
+			if (current_a->nbr > b->nbr
+				&& current_a->nbr < best_match)
 			{
 				best_match = current_a->nbr;
 				target_node = current_a;

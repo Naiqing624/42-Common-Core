@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 10:35:24 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/16 13:40:32 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 15:42:29 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static long	ft_atol(const char *str)
 			sign = -1;
 		i++;
 	}
-	while (ft_isdigit(str[i]))
+	while (str[i] >= '0' && str[i] <= '9')
 		result = result * 10 + (str[i++] - '0');
 	return (result * sign);
 }
 
-static void add_node(t_stack_node **stack, int n)
+static void	add_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*tmp;
 	t_stack_node	*last_node;

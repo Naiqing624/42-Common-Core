@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:54:01 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/16 14:27:08 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 16:18:36 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,18 @@ void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 
 static void	min_top(t_stack_node **a)
 {
-	while ((*a)->nbr != find_min(*a)->nbr)
+	t_stack_node	*min_node;
+
+	min_node = find_min(*a);
+	while ((*a)->nbr != min_node->nbr)
 	{
-		if (find_min(*a)->above_median)
+		if (min_node->above_median)
 			ra(a, true);
 		else
+		{
+			printf("1212");
 			rra(a, true);
+		}
 	}
 }
 
@@ -36,12 +42,9 @@ void	sort_stack(t_stack_node **a, t_stack_node **b)
 	len_a = stack_len(*a);
 	while (len_a > 3 && !(stack_sorted(*a)))
 	{
-        pb(a, b, true);
-        len_a--;
-        printf("len_a after pb: %d\n", len_a);
-    }
-	if (len_a-- > 3 && !(stack_sorted(*a)))
-		pb(b, a, true);
+		pb(a, b, true);
+		len_a--;
+	}
 	while (len_a-- > 3 && !(stack_sorted(*a)))
 	{
 		set_value_a(*a, *b);

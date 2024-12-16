@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 10:35:43 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/16 13:38:36 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 15:50:08 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@
 int	is_syntax(char *str)
 {
 	if (!str || !*str)
-    	return (1);
+		return (1);
 	if (!(*str == '+' || *str == '-'
-		|| (*str >= '0' && *str <= '9')))
+			|| (*str >= '0' && *str <= '9')))
 		return (1);
 	if ((*str == '+' || *str == '-')
 		&& !(str[1] >= '0' && str[1] <= '9'))
 		return (1);
 	while (*str)
 	{
+		if ((*str == '+' || *str == '-'))
+			str++;
 		if (!(*str >= '0' && *str <= '9'))
 			return (1);
 		str++;

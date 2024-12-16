@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:37:25 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/16 14:20:32 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 15:11:40 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 }
 
 //计算每个节点的pushcost
-static void cost_analysis_a(t_stack_node *a, t_stack_node *b)
+static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;
