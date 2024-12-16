@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:17:45 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/05 11:59:28 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 13:25:30 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int	main(int argc, char **argv)
 			sort_stack(&a, &b);
 	}
 	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

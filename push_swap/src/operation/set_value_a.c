@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a_to_b.c                                           :+:      :+:    :+:   */
+/*   set_value_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:37:25 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/12 10:52:08 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 14:20:32 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,16 @@ void	current_index(t_stack_node *stack)
 	if (!stack)
 		return ;
 	median_len = stack_len(stack) / 2;
-	if (!stack)
-		return ;
 	i = 0;
 	while (stack)
 	{
 		stack->index = i;
-		if (i > median_len)
-			stack->above_median = false;
-		else
+		if (i <= median_len)
 			stack->above_median = true;
+		else
+			stack->above_median = false;
 		stack = stack->next;
-		i++;
+		++i;
 	}
 }
 
@@ -55,8 +53,8 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 			if (current_b->nbr < a->nbr
 				&& current_b->nbr > best_match)
 			{
-				target_node = current_b;
 				best_match = current_b->nbr;
+				target_node = current_b;
 			}
 			current_b = current_b->next;
 		}

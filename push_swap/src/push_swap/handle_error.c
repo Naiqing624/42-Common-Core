@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 10:35:43 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/10 10:35:43 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/16 13:38:36 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,17 @@
 //如果有符号 那第二个必须是数字
 int	is_syntax(char *str)
 {
+	if (!str || !*str)
+    	return (1);
 	if (!(*str == '+' || *str == '-'
-		|| (*str >= 0 && *str <= 9)))
+		|| (*str >= '0' && *str <= '9')))
 		return (1);
 	if ((*str == '+' || *str == '-')
-		&& !(str[1] >= 0 && str[1] <= 9))
+		&& !(str[1] >= '0' && str[1] <= '9'))
 		return (1);
 	while (*str)
 	{
-		if (!(*str >= 0 && *str <= 9))
+		if (!(*str >= '0' && *str <= '9'))
 			return (1);
 		str++;
 	}
@@ -38,27 +40,26 @@ void	free_stack(t_stack_node **stack)
 	t_stack_node	*current;
 	t_stack_node	*tmp;
 
-	if (!*stack)
+	if (!stack || !*stack)
 		return ;
 	current = *stack;
 	while (current)
 	{
 		tmp = current->next;
-		current->nbr = 0;
 		free(current);
 		current = tmp;
 	}
-	*stack == NULL;
+	*stack = NULL;
 }
 
-void	error_free(t_stack_node **stack)
+void	ft_error_free(t_stack_node **stack)
 {
 	free_stack(stack);
 	ft_printf("Error\n");
 	exit(1);
 }
 
-int	error_dup(t_stack_node *stack, int n)
+int	ft_error_dup(t_stack_node *stack, int n)
 {
 	if (!stack)
 		return (0);

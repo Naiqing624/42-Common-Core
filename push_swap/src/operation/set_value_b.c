@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:03:11 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/12 16:40:07 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 14:20:29 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 		{
 			if (current_a->nbr > b->nbr && current_a->nbr < best_match)
 			{
-				target_node = current_a;
 				best_match = current_a->nbr;
+				target_node = current_a;
 			}
 			current_a = current_a->next;
 		}
@@ -46,10 +46,4 @@ void	set_value_b(t_stack_node *a, t_stack_node *b)
 	current_index(a);
 	current_index(b);
 	set_target_b(a, b);
-}
-
-void	move_b_to_a(t_stack_node **a, t_stack_node **b)
-{
-	before_push(a, (*b)->target_node, 'a');
-	pa(b, a, true);
 }

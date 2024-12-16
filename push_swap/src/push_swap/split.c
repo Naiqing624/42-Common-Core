@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:07:04 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/09 10:54:36 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/16 13:35:58 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static char	*get_next_word(char *str, char c)
 		cursor++;
 	while (str[cursor + len] != c && str[cursor + len])
 		len++;
-	result = (char *)malloc(sizeof(char) * (len + 2));
+	result = (char *)malloc(sizeof(char) * (len + 1));
 	if (!result)
 		return (NULL);
 	i = 0;
@@ -84,22 +84,20 @@ char	**ft_ssplit(char *str, char c)
 	return (result);
 }
 
-/*
-int	main(void)
-{
-	char	input[] = ",Hello,world,Push,Swap";
-	char	delimiter = ',';
-	char	**result = ft_ssplit(input, delimiter);
-	int		i;
+// int	main(void)
+// {
+// 	char	input[] = "Hello,world,Push,Swap";
+// 	char	delimiter = ',';
+// 	char	**result = ft_ssplit(input, delimiter);
+// 	int		i;
 
-	i = 0;
-	while (result[i])
-	{
-		printf("%s", result[i]);
-		free(result[i]);
-		i++;
-	}
-	free(result);
-	return (0);
-}
-*/
+// 	i = 0;
+// 	while (result[i])
+// 	{
+// 		printf("%s\n", result[i]);
+// 		free(result[i]);
+// 		i++;
+// 	}
+// 	free(result);
+// 	return (0);
+// }
