@@ -57,13 +57,19 @@ void			ss(t_stack_node **a, t_stack_node **b, bool print);
 void			ra(t_stack_node **a, bool print);
 void			rb(t_stack_node **b, bool print);
 void			rr(t_stack_node **a, t_stack_node **b, bool print);
+void			rra(t_stack_node **a, bool print);
+void			rrb(t_stack_node **b, bool print);
+void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 void			sort_three(t_stack_node **stack);
+void			sort_stack(t_stack_node **a, t_stack_node **b);
 
 //Algorhithms
 void			current_index(t_stack_node *stack);
 void			set_cheapest(t_stack_node *stack);
 void			set_value_a(t_stack_node *a, t_stack_node *b);
-void			move_a_to_b(t_stack_node *a, t_stack_node *b);
+void			move_a_to_b(t_stack_node **a, t_stack_node **b);
 void			set_value_b(t_stack_node *a, t_stack_node *b);
+void			before_push(t_stack_node **stack, t_stack_node *top_node, char stack_name);
+void			move_b_to_a(t_stack_node **a, t_stack_node **b);
 
 #endif

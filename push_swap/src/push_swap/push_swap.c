@@ -19,10 +19,10 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || (argc == 2))
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
-		argv = ft_ssplit(*argv, ' ');
+		argv = ft_ssplit(argv[1], ' ');
 	stack_a_initia(&a, argv + 1);
 	if (!(stack_sorted(a)))
 	{
@@ -31,7 +31,8 @@ int	main(int argc, char **argv)
 		else if (stack_len(a) == 3)
 			sort_three(&a);
 		else
-			;
+			sort_stack(&a, &b);
 	}
+	free_stack(&a);
 	return (0);
 }
