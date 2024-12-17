@@ -12,29 +12,26 @@
 
 #include "../../inc/push_swap.h"
 
-static void	set_target_b(t_stack_node *a, t_stack_node *b)
+static void	set_target_b(t_stack_node *a, t_stack_node *b) 
 {
-	t_stack_node	*current_a;
-	t_stack_node	*target_node;
-	long			best_match;
+	t_stack_node	*current_a; 
+	t_stack_node	*target_node; 
+	long			best_match_index; 
 
 	while (b)
 	{
-		best_match = LONG_MAX;
-		target_node = NULL;
-		printf("为stack a 找到 b 的目标节点（差值最小）如果没有找到 则选择 b 的最大点");
+		best_match_index = LONG_MAX;
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->nbr > b->nbr
-				&& current_a->nbr < best_match)
+			if (current_a->nbr > b->nbr && current_a->nbr < best_match_index)
 			{
-				best_match = current_a->nbr;
+				best_match_index = current_a->nbr;
 				target_node = current_a;
 			}
 			current_a = current_a->next;
 		}
-		if (best_match == LONG_MAX)
+		if (best_match_index == LONG_MAX)
 			b->target_node = find_min(a);
 		else
 			b->target_node = target_node;

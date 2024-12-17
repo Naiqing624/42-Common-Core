@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	if (!(stack_sorted(a)))
 	{
 		if (stack_len(a) == 2)
-			sa(&a, true);
+			sa(&a, false);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
 		else

@@ -15,31 +15,28 @@
 static void	re_rotate(t_stack_node **stack)
 {
 	t_stack_node	*last;
-	t_stack_node	*prev;
 
-	if (!*stack || (*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	last = last_stack(*stack);
-    prev = last->prev;
-    if (prev)
-        prev->next = NULL;
-    last->prev = NULL;
-    last->next = *stack;
-    (*stack)->prev = last;
-    *stack = last;
+    last->prev->next = NULL;
+	last->next = *stack;
+	last->prev = NULL;
+	*stack = last;
+	last->next->prev = last;
 }
 
 void	rra(t_stack_node **a, bool print)
 {
 	re_rotate(a);
-	if (print)
+	if (!print)
 		ft_printf("rra\n");
 }
 
 void	rrb(t_stack_node **b, bool print)
 {
 	re_rotate(b);
-	if (print)
+	if (!print)
 		ft_printf("rrb\n");
 }
 
@@ -47,6 +44,6 @@ void	rrr(t_stack_node **a, t_stack_node **b, bool print)
 {
 	re_rotate(a);
 	re_rotate(b);
-	if (print)
+	if (!print)
 		ft_printf("rrr\n");
 }

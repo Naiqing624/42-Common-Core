@@ -18,8 +18,7 @@ int	is_syntax(char *str)
 {
 	if (!str || !*str)
 		return (1);
-	if (!(*str == '+' || *str == '-'
-			|| (*str >= '0' && *str <= '9')))
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
 		return (1);
 	if ((*str == '+' || *str == '-')
 		&& !(str[1] >= '0' && str[1] <= '9'))
@@ -48,6 +47,7 @@ void	free_stack(t_stack_node **stack)
 	while (current)
 	{
 		tmp = current->next;
+		current->nbr = 0;
 		free(current);
 		current = tmp;
 	}

@@ -77,6 +77,7 @@ char	**ft_ssplit(char *str, char c)
 			if (!result[i])
 				return (NULL);
 			result[i++][0] = '\0';
+			continue;
 		}
 		result[i++] = get_next_word(str, c);
 	}

@@ -18,9 +18,9 @@ void	sort_three(t_stack_node **stack)
 
 	max = find_max(*stack);
 	if (max == *stack)
-		ra(stack, true);
+		ra(stack, false);
 	else if (max == (*stack)->next)
-		rra(stack, true);
+		rra(stack, false);
 	if ((*stack)->nbr > (*stack)->next->nbr)
-		sa(stack, true);
+		sa(stack, false);
 }

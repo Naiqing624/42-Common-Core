@@ -43,7 +43,7 @@ static void	add_node(t_stack_node **stack, int n)
 		return ;
 	tmp = malloc(sizeof(t_stack_node));
 	if (!tmp)
-		ft_error_free(stack);
+		return ;
 	tmp->nbr = n;
 	tmp->next = NULL;
 	tmp->cheapest = 0;
@@ -80,5 +80,68 @@ void	stack_a_initia(t_stack_node **a, char **argv)
 			ft_error_free(a);
 		add_node(a, (int)n);
 		i++;
+	}
+}
+
+t_stack_node	*get_cheapest(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
+// t_stack_node	*get_cheapest(t_stack_node *stack)
+// {
+//     printf("Entering get_cheapest function\n");
+
+//     if (!stack)
+//     {
+//         printf("Error: stack is NULL\n");
+//         return (NULL);
+//     }
+
+//     printf("Traversing the stack:\n");
+//     while (stack)
+//     {
+//         printf("Node: %p, value: %d, cheapest: %d, target_node: %p\n",
+//             (void *)stack, stack->nbr, stack->cheapest, (void *)stack->target_node);
+
+//         if (stack->cheapest)
+//         {
+//             printf("Cheapest node found: %p, value: %d\n", (void *)stack, stack->nbr);
+//             return (stack);
+//         }
+//         stack = stack->next;
+//     }
+//     printf("No cheapest node found\n");
+//     return (NULL);
+// }
+
+
+//s = stack / n = top_node / c = stack_name
+void	before_push(t_stack_node **s, t_stack_node *n, char c)
+{
+	while (*s != n)
+	{
+		if (c == 'a')
+		{
+			if (n->above_median)
+				ra(s, false);
+			else
+				rra(s, false);
+		}
+		else if (c == 'b')
+		{
+			if (n->above_median)
+				rb(s, false);
+			else
+				rrb(s, false);
+		}
 	}
 }

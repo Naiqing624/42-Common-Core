@@ -46,12 +46,10 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	while (a)
 	{
 		best_match = LONG_MIN;
-		target_node = NULL;
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->nbr < a->nbr
-				&& current_b->nbr > best_match)
+			if (current_b->nbr < a->nbr && current_b->nbr > best_match)
 			{
 				best_match = current_b->nbr;
 				target_node = current_b;
@@ -72,22 +70,56 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 	int	len_a;
 	int	len_b;
 
-	if (!a || !b)
-		return ;
+	if (!b)
+		return;
 	len_a = stack_len(a);
 	len_b = stack_len(b);
+	if (len_a <= 0 || len_b < 0) 
+		return;
 	while (a)
 	{
 		a->push_cost = a->index;
 		if (!(a->above_median))
 			a->push_cost = len_a - (a->index);
-		if (a->target_node->above_median)
-			a->push_cost += a->target_node->index;
-		else
-			a->push_cost += len_b - (a->target_node->index);
+		if (a->target_node)
+		{
+			if (a->target_node->above_median)
+				a->push_cost += a->target_node->index;
+			else
+				a->push_cost += len_b - (a->target_node->index);
+		}
 		a = a->next;
 	}
 }
+
+void set_target_nodes(t_stack_node *a, t_stack_node *b)
+{
+    t_stack_node *current_a = a;
+
+    while (current_a)
+    {
+        long best_match = LONG_MIN;
+        t_stack_node *target_node = NULL;
+        t_stack_node *current_b = b;
+
+        while (current_b)
+        {
+            if (current_b->nbr < current_a->nbr && current_b->nbr > best_match)
+            {
+                best_match = current_b->nbr;
+                target_node = current_b;
+            }
+            current_b = current_b->next;
+        }
+
+        if (!target_node)  // 如果没有更小的节点，则选择栈 B 中的最大节点
+            target_node = find_max(b);
+
+        current_a->target_node = target_node;  // 设置 target_node
+        current_a = current_a->next;
+    }
+}
+
 
 //找到整个stack中 pushcost的值最小的node
 //然后把这个node->cheapest设置为true
@@ -115,6 +147,7 @@ void	set_cheapest(t_stack_node *stack)
 void	set_value_a(t_stack_node *a, t_stack_node *b)
 {
 	current_index(a);
+	current_index(b);
 	set_target_a(a, b);
 	cost_analysis_a(a, b);
 	set_cheapest(a);
