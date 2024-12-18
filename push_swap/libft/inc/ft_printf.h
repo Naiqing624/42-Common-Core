@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 14:55:37 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/16 11:04:17 by nacao            ###   ########.fr       */
+/*   Updated: 2024/11/03 14:55:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ int			ft_putunsigned(unsigned int n);
 char		*ft_itoa(int n);
 
 //ft_printf_p.c
+static int	ft_countpointer(unsigned long long ptr);
 int			ft_printpointer(unsigned long long ptr);
 int			ft_putpointer(unsigned long long ptr);
 
 //ft_printf_x.c
+static int	ft_counthex(unsigned int i);
 void		ft_printhex(unsigned int i, const char format);
 int			ft_puthex(unsigned int i, const char format);
 
