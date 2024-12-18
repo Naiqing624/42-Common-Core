@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:56:04 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/16 15:04:06 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/18 13:57:40 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int				is_syntax(char *str);
 void			free_stack(t_stack_node **stack);
 void			ft_error_free(t_stack_node **stack);
 int				ft_error_dup(t_stack_node *stack, int n);
+void			print_error(void);
 
 //Stack initiation
 void			stack_a_initia(t_stack_node **a, char **argv);
@@ -71,5 +72,6 @@ void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 //Algorhithms
 void			sort_three(t_stack_node **stack);
 void			sort_stack(t_stack_node **a, t_stack_node **b);
+void			move_a_to_b(t_stack_node **a, t_stack_node **b);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ope_re_rotate.c                                    :+:      :+:    :+:   */
+/*   re_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:11:47 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/16 16:09:45 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/18 13:57:41 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	re_rotate(t_stack_node **stack)
 	if (!*stack || !(*stack)->next)
 		return ;
 	last = last_stack(*stack);
-    last->prev->next = NULL;
+	last->prev->next = NULL;
 	last->next = *stack;
 	last->prev = NULL;
 	*stack = last;

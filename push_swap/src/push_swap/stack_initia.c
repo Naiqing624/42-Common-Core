@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 10:35:24 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/16 15:42:29 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/18 15:19:30 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,14 @@ static long	ft_atol(const char *str)
 			sign = -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			print_error();
 		result = result * 10 + (str[i++] - '0');
+	}
+	if ((result * sign) > 2147483647 || (result * sign) < -2147483648)
+		print_error();
 	return (result * sign);
 }
 
@@ -95,34 +101,6 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	}
 	return (NULL);
 }
-
-// t_stack_node	*get_cheapest(t_stack_node *stack)
-// {
-//     printf("Entering get_cheapest function\n");
-
-//     if (!stack)
-//     {
-//         printf("Error: stack is NULL\n");
-//         return (NULL);
-//     }
-
-//     printf("Traversing the stack:\n");
-//     while (stack)
-//     {
-//         printf("Node: %p, value: %d, cheapest: %d, target_node: %p\n",
-//             (void *)stack, stack->nbr, stack->cheapest, (void *)stack->target_node);
-
-//         if (stack->cheapest)
-//         {
-//             printf("Cheapest node found: %p, value: %d\n", (void *)stack, stack->nbr);
-//             return (stack);
-//         }
-//         stack = stack->next;
-//     }
-//     printf("No cheapest node found\n");
-//     return (NULL);
-// }
-
 
 //s = stack / n = top_node / c = stack_name
 void	before_push(t_stack_node **s, t_stack_node *n, char c)

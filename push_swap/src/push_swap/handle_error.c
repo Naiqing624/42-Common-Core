@@ -6,11 +6,17 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 10:35:43 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/16 15:50:08 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/18 15:14:27 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
+
+void	print_error(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
 //必须得第一个对符号的检测 因为+和-都是可以的
 //如果有符号 那第二个必须是数字
@@ -27,7 +33,7 @@ int	is_syntax(char *str)
 	{
 		if ((*str == '+' || *str == '-'))
 			str++;
-		if (!(*str >= '0' && *str <= '9'))
+		else if (!(*str >= '0' && *str <= '9'))
 			return (1);
 		str++;
 	}
@@ -57,19 +63,22 @@ void	free_stack(t_stack_node **stack)
 void	ft_error_free(t_stack_node **stack)
 {
 	free_stack(stack);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
 int	ft_error_dup(t_stack_node *stack, int n)
 {
+	t_stack_node	*current;
+
+	current = stack;
 	if (!stack)
 		return (0);
-	while (stack)
+	while (current)
 	{
-		if (stack->nbr == n)
+		if (current->nbr == n)
 			return (1);
-		stack = stack->next;
+		current = current->next;
 	}
 	return (0);
 }

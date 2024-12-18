@@ -6,11 +6,25 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:07:04 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/16 13:35:58 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/18 13:55:49 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
+
+void	free_result(char **result, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (result[i])
+			free(result[i]);
+		i++;
+	}
+	free(result);
+}
 
 static int	count_string(char *str, char c)
 {
@@ -58,6 +72,18 @@ static char	*get_next_word(char *str, char c)
 	return (result);
 }
 
+bool	initialize_first_word(char **result, int *i)
+{
+	result[*i] = (char *)malloc(sizeof(char));
+	if (!result[*i])
+	{
+		free_result(result, *i);
+		return (false);
+	}
+	result[(*i)++][0] = '\0';
+	return (true);
+}
+
 char	**ft_ssplit(char *str, char c)
 {
 	char	**result;
@@ -69,21 +95,57 @@ char	**ft_ssplit(char *str, char c)
 	if (!result)
 		return (NULL);
 	i = 0;
+	if (!initialize_first_word(result, &i))
+		return (NULL);
 	while (count-- > 0)
 	{
-		if (i == 0)
+		result[i] = get_next_word(str, c);
+		if (!result[i])
 		{
-			result[i] = (char *)malloc(sizeof(char));
-			if (!result[i])
-				return (NULL);
-			result[i++][0] = '\0';
-			continue;
+			free_result(result, i);
+			return (NULL);
 		}
-		result[i++] = get_next_word(str, c);
+		i++;
 	}
 	result[i] = NULL;
 	return (result);
 }
+
+// char	**ft_ssplit(char *str, char c)
+// {
+// 	char	**result;
+// 	int		count;
+// 	int		i;
+
+// 	count = count_string(str, c);
+// 	result = malloc(sizeof(char *) * (count + 2));
+// 	if (!result)
+// 		return (NULL);
+// 	i = 0;
+// 	while (count-- > 0)
+// 	{
+// 		if (i == 0)
+// 		{
+// 			result[i] = (char *)malloc(sizeof(char));
+// 			if (!result[i])
+// 			{
+// 				free_result(result, i);
+// 				return (NULL);
+// 			}
+// 			result[i++][0] = '\0';
+// 			continue;
+// 		}
+// 		result[i] = get_next_word(str, c);
+// 		if (!result[i])
+// 		{
+// 			free_result(result, i);
+// 			return (NULL);
+// 		}
+// 		i++;
+// 	}
+// 	result[i] = NULL;
+// 	return (result);
+// }
 
 // int	main(void)
 // {

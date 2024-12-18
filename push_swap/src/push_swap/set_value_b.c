@@ -6,17 +6,40 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:03:11 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/16 16:35:25 by nacao            ###   ########.fr       */
+/*   Updated: 2024/12/18 13:55:36 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-static void	set_target_b(t_stack_node *a, t_stack_node *b) 
+//为每个字节里面的数字标上序列号
+//并标记在中位数上 或者中位数下
+void	current_index(t_stack_node *stack)
 {
-	t_stack_node	*current_a; 
-	t_stack_node	*target_node; 
-	long			best_match_index; 
+	int	median_len;
+	int	i;
+
+	if (!stack)
+		print_error();
+	median_len = stack_len(stack) / 2;
+	i = 0;
+	while (stack)
+	{
+		stack->index = i;
+		if (i <= median_len)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
+		stack = stack->next;
+		++i;
+	}
+}
+
+static void	set_target_b(t_stack_node *a, t_stack_node *b)
+{
+	t_stack_node	*current_a;
+	t_stack_node	*target_node;
+	long			best_match_index;
 
 	while (b)
 	{

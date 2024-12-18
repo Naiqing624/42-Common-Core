@@ -6,7 +6,7 @@
 #    By: nacao <nacao@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 10:00:10 by nacao             #+#    #+#              #
-#    Updated: 2024/12/16 13:07:53 by nacao            ###   ########.fr        #
+#    Updated: 2024/12/18 13:54:31 by nacao            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS = $(SRC_DIR)operation/push.c \
 		$(SRC_DIR)operation/swap.c \
 		$(SRC_DIR)operation/sort_stack.c \
 		$(SRC_DIR)operation/sort_three.c \
+		$(SRC_DIR)operation/sort_stack_move_a_to_b.c \
 		$(SRC_DIR)push_swap/handle_error.c \
 		$(SRC_DIR)push_swap/push_swap.c \
 		$(SRC_DIR)push_swap/set_value_a.c \
