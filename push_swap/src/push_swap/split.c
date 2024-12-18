@@ -90,6 +90,8 @@ char	**ft_ssplit(char *str, char c)
 	int		count;
 	int		i;
 
+	if (!str || !*str)
+		return (NULL);
 	count = count_string(str, c);
 	result = malloc(sizeof(char *) * (count + 2));
 	if (!result)

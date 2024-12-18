@@ -14,7 +14,6 @@ MAKEFLAGS += --silent
 
 NAME = push_swap
 
-
 LIBFT = ./libft/libft.a
 INC = inc/
 SRC_DIR = src/
