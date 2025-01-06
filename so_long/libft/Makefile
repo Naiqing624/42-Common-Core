@@ -22,6 +22,8 @@ LIBFT_DIR = libft/
 
 FT_PRINTF_DIR = ft_printf/
 
+GET_NEXT_LINE_DIR = get_next_line/
+
 SRCS = $(LIBFT_DIR)ft_isalpha.c \
 		$(LIBFT_DIR)ft_isdigit.c \
 		$(LIBFT_DIR)ft_isalnum.c \
@@ -61,7 +63,9 @@ SRCS = $(LIBFT_DIR)ft_isalpha.c \
 		$(FT_PRINTF_DIR)ft_printf_unsigned.c \
 		$(FT_PRINTF_DIR)ft_itoa.c \
 		$(FT_PRINTF_DIR)ft_printf_p.c \
-		$(FT_PRINTF_DIR)ft_printf_x.c
+		$(FT_PRINTF_DIR)ft_printf_x.c \
+		$(GET_NEXT_LINE_DIR)get_next_line_bonus.c \
+		$(GET_NEXT_LINE_DIR)get_next_line_utils_bonus.c 
 
 OBJS = $(SRCS:.c=.o)
 

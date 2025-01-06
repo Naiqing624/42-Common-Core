@@ -13,15 +13,16 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-// #include <mlx.h>
-// #include <X11/X.h>
-// #include <X11/keysym.h>
-#include "../libft/inc/ft_printf.h"
-#include "../libft/inc/libft.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <mlx.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include "../libft/inc/ft_printf.h"
+# include "../libft/inc/libft.h"
+# include "../libft/inc/get_next_line_bonus.h"
 
 
 
