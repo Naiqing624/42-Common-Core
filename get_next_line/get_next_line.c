@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 13:39:25 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/01 13:39:25 by marvin           ###   ########.fr       */
+/*   Created: 2024/11/04 08:37:15 by nacao             #+#    #+#             */
+/*   Updated: 2024/11/04 08:37:47 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char	*get_next_line(int fd)
 	remove_result(&stash);
 	return (result);
 }
-
+/*
 #include <fcntl.h>
 
 int main()
@@ -113,7 +113,7 @@ int main()
     int fd;
     char *line;
 
-    fd = open("test1.txt", O_RDONLY);
+    fd = open("test.txt", O_RDONLY);
     if (fd == -1)
     {
         perror("Error opening file");
@@ -132,4 +132,4 @@ int main()
     printf("File closed.\n");
 
     return (0);
-}
+}*/
