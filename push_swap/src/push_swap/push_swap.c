@@ -33,10 +33,7 @@ void	init_and_check(int argc, char ***argv, t_stack_node **a)
 
 	split_argv = NULL;
 	if (argc == 1 || (argc == 2 && !(*argv)[1][0]))
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		print_error();
 	else if (argc == 2)
 	{
 		split_argv = ft_ssplit((*argv)[1], ' ');
@@ -55,6 +52,11 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	init_and_check(argc, &argv, &a);
+	if (stack_sorted(a))
+	{
+		free_stack(&a);
+		return (0);
+	}
 	if (!(stack_sorted(a)))
 	{
 		if (stack_len(a) == 2)
