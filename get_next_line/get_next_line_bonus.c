@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 16:01:35 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/02 16:01:35 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/06 09:19:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char	*get_next_line(int fd)
 	remove_result(&stash[fd]);
 	return (result);
 }
-
+/*
 #include <fcntl.h>
 #include <stdio.h>
 
@@ -155,4 +155,4 @@ int main(int argc, char **argv)
     }
 
     return (0);
-}
+}*/

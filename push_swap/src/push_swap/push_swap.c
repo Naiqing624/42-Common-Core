@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:17:45 by nacao             #+#    #+#             */
-/*   Updated: 2024/12/18 15:37:22 by nacao            ###   ########.fr       */
+/*   Updated: 2025/01/06 09:22:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_argv(char **argv)
 	int	i;
 
 	if (!argv)
-		return;
+		return ;
 	i = 0;
 	while (argv[i])
 	{
@@ -43,7 +43,6 @@ void	init_and_check(int argc, char ***argv, t_stack_node **a)
 	if (split_argv)
 		free_argv(split_argv);
 }
-
 
 int	main(int argc, char **argv)
 {
