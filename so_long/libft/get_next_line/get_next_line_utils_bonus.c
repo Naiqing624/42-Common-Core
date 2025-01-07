@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 16:02:21 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/02 16:02:21 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/07 10:12:41 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../inc/get_next_line_bonus.h"
 
 void	ft_bzero(void *s, size_t n)
 {

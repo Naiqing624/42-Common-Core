@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nacao <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 16:01:35 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/04 08:38:31 by nacao            ###   ########.fr       */
+/*   Updated: 2025/01/07 10:12:47 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../inc/get_next_line_bonus.h"
 
 static int	read_buffer(int fd, char **stash, char *buffer)
 {
