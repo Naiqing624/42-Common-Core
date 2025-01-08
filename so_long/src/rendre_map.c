@@ -6,11 +6,23 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:35:32 by nacao             #+#    #+#             */
-/*   Updated: 2025/01/07 18:05:01 by nacao            ###   ########.fr       */
+/*   Updated: 2025/01/08 15:03:49 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+void	print_movement(t_game *game)
+{
+	char	*movement;
+	char	*phrase;
+
+	movement = ft_itoa(game->movement);
+	phrase = ft_strjoin("Movement: ", movement);
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 40, 20, 99999, phrase);
+	free(movement);
+	free(phrase);
+}
 
 void	ft_image_to_window(t_game *game, t_image sprite, int y, int x)
 {
@@ -52,7 +64,7 @@ void	ft_rendre_sprites(t_game *game, int y, int x)
 		ft_rendre_player(game, y, x);
 }
 
-void	ft_rendre_map(t_game *game)
+int	ft_rendre_map(t_game *game)
 {
 	int	y;
 	int	x;
@@ -68,4 +80,6 @@ void	ft_rendre_map(t_game *game)
 		}
 		y++;
 	}
+	print_movement(game);
+	return (0);
 }

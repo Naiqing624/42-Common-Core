@@ -20,9 +20,7 @@
 # include <mlx.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include "../libft/inc/ft_printf.h"
-# include "../libft/inc/libft.h"
-# include "../libft/inc/get_next_line_bonus.h"
+# include "../libft/lib/libft.h"
 
 # define IMG_HEIGHT			32
 # define IMG_WIDTH			32
@@ -116,6 +114,7 @@ void	ft_check_arg(int argc, char **argv, t_game *game);
 //error_free
 void	ft_free_map(t_game *game);
 int		ft_error_message(char *message, t_game *game);
+void	ft_free_all_memery(t_game *game);
 
 //initialize Map .ber to game->map.full
 void	check_empty_line(t_game *game, char *map);
@@ -133,5 +132,15 @@ void	ft_initia_mlx_win(t_game *game);
 
 //Load and initialize the sprites needed for the game
 void	ft_initia_sprites(t_game *game);
+
+//rendre game
+int		ft_rendre_map(t_game *game);
+
+//quit game
+int		ft_victory_game(t_game *game);
+int		ft_close_game(t_game *game);
+
+//handle input - give the reation to keypress
+int		ft_handle_input(int keysym, t_game *game);
 
 #endif

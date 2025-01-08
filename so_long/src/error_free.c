@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 11:27:33 by nacao             #+#    #+#             */
-/*   Updated: 2025/01/07 13:08:45 by nacao            ###   ########.fr       */
+/*   Updated: 2025/01/08 17:08:58 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,32 @@ void	ft_free_map(t_game *game)
 
 int	ft_error_message(char *message, t_game *game)
 {
-	if (game->map_malloc = true)
+	if (game->map_malloc == true)
 		ft_free_map(game);
 	free(game);
 	ft_printf("Error\n%s\n", message);
 	exit (EXIT_FAILURE);
+}
+
+void	ft_destroy_image(t_game *game)
+{
+	mlx_destroy_image(game->mlx_ptr, game->coin.xpm_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->exit_closed.xpm_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->floor.xpm_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->open_exit.xpm_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->player_back.xpm_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->player_front.xpm_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->player_left.xpm_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->player_right.xpm_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->wall.xpm_ptr);
+}
+
+void	ft_free_all_memery(t_game *game)
+{
+	ft_destroy_image(game);
+	ft_free_map(game);
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	mlx_destroy_display(game->mlx_ptr);
+	free(game->mlx_ptr);
+	free(game);
 }

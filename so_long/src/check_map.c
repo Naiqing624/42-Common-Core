@@ -6,19 +6,11 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:35:03 by nacao             #+#    #+#             */
-/*   Updated: 2025/01/07 16:20:03 by nacao            ###   ########.fr       */
+/*   Updated: 2025/01/08 17:08:25 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-
-void	ft_check_map(t_game *game)
-{
-	ft_check_row(game);
-	ft_check_column(game);
-	ft_check_set_map(game);
-	ft_check_parametre(game);
-}
 
 void	ft_check_row(t_game *game)
 {
@@ -87,4 +79,12 @@ void	ft_check_parametre(t_game *game)
 		ft_error_message("Invalid Map. NO EXIT found", game);
 	else if (game->map.players != 1)
 		ft_error_message("Invalid Map. MORE THAN ONE PLAYER", game);
+}
+
+void	ft_check_map(t_game *game)
+{
+	ft_check_row(game);
+	ft_check_column(game);
+	ft_check_set_map(game);
+	ft_check_parametre(game);
 }
