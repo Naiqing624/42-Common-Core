@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:35:03 by nacao             #+#    #+#             */
-/*   Updated: 2025/01/08 17:08:25 by nacao            ###   ########.fr       */
+/*   Updated: 2025/01/09 08:26:40 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ void	ft_check_column(t_game *game)
 	i = 0;
 	while (i < game->map.columns)
 	{
+		if (!game->map.full[0] || !game->map.full[game->map.rows - 1])
+			ft_error_message("Invalid access in column check", game);
 		if (game->map.full[0][i] != WALL)
 			ft_error_message("Wall incomplet at column start", game);
-		else if (game->map.full[game->map.rows - 1][i] != WALL)
+		if (game->map.full[game->map.rows - 1][i] != WALL)
 			ft_error_message("Wall incomplet at column end", game);
 		i++;
 	}

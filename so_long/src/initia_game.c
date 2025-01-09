@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:22:03 by nacao             #+#    #+#             */
-/*   Updated: 2025/01/07 17:31:58 by nacao            ###   ########.fr       */
+/*   Updated: 2025/01/09 08:30:49 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_initia_var(t_game *game)
 	game->map.coin = 0;
 	game->map.players = 0;
 	game->map.exit = 0;
-	game->map.columns = ft_strlen(game->map.full[0] - 1);
+	game->map.columns = ft_strlen(game->map.full[0]);
 	game->movement = 0;
 	game->player_sprite = FRONT;
 }
@@ -30,7 +30,8 @@ void	ft_initia_mlx_win(t_game *game)
 		ft_error_message("Couldn't find mlx pointer", game);
 	}
 	game->win_ptr = mlx_new_window(game->mlx_ptr,
-	game->map.columns * IMG_WIDTH, game->map.rows * IMG_HEIGHT, "so_long");
+			game->map.columns * IMG_WIDTH,
+			game->map.rows * IMG_HEIGHT, "so_long");
 	if (game->win_ptr == NULL)
 	{
 		free(game->mlx_ptr);
@@ -43,8 +44,8 @@ t_image	ft_new_sprite(void *mlx, char *path, t_game *game)
 	t_image	sprite;
 
 	sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.y, &sprite.x);
-	if (sprite.xpm_ptr == NULL)
-		ft_error_message("Couldn't find sprite", game);
+	if (!sprite.xpm_ptr)
+		ft_error_message(ft_strjoin("Couldn't find sprite: ", path), game);
 	return (sprite);
 }
 

@@ -19,7 +19,6 @@ RESET           = \033[0m
 LIBFT           = ./libft/lib/libft.a
 
 CC              = clang
-
 CFLAGS          = -Wall -Werror -Wextra -I./libft/minilibx-linux
 LDFLAGS         = -L./libft/minilibx-linux -lmlx -lXext -lX11
 
@@ -28,22 +27,25 @@ VALGRIND        = @valgrind --leak-check=full --show-leak-kinds=all \
 
 REMOVE          = rm -f
 
-SRC_DIR        = ./src/
+SRC_DIR         = ./src/
+OBJ_DIR         = ./obj/
 
-SRCS = $(SRC_DIR)check_argc.c \
-		$(SRC_DIR)check_map.c \
-		$(SRC_DIR)error_free.c \
-		$(SRC_DIR)handle_input.c \
-		$(SRC_DIR)initia_game.c \
-		$(SRC_DIR)initia_map.c \
-		$(SRC_DIR)quit_game.c \
-		$(SRC_DIR)rendre_map.c \
-		$(SRC_DIR)so_long.c
+SRCS            = check_argc.c check_map.c error_free.c handle_input.c \
+                  initia_game.c initia_map.c quit_game.c rendre_map.c \
+                  so_long.c
+SRCS_FULL       = $(addprefix $(SRC_DIR), $(SRCS))
+OBJS            = $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 all:            ${LIBFT} ${NAME}
 
-${NAME}:        
-		${CC} ${SRCS} ${LIBFT} ${CFLAGS} ${LDFLAGS} -o ${NAME}
+${OBJ_DIR}:
+		@mkdir -p ${OBJ_DIR}
+
+${OBJS}: ${OBJ_DIR}%.o: ${SRC_DIR}%.c
+		${CC} ${CFLAGS} -c $< -o $@
+
+${NAME}: ${OBJ_DIR} ${OBJS}
+		${CC} ${OBJS} ${LIBFT} ${CFLAGS} ${LDFLAGS} -o ${NAME}
 		@echo "$(NAME): $(GREEN)$(NAME) was compiled.$(RESET)"
 		@echo
 
@@ -53,11 +55,13 @@ ${LIBFT}:
 
 clean:
 		make clean -C libft/lib
+		${REMOVE} ${OBJS}
+		@echo "$(NAME): $(RED)Object files were deleted$(RESET)"
 		@echo
 
-fclean:
+fclean: clean
 		${REMOVE} ${NAME}
-                @echo "${NAME}: ${RED}${NAME} were deleted${RESET}"
+		@echo "$(NAME): $(RED)${NAME} was deleted$(RESET)"
 		@echo
 
 re:             fclean all

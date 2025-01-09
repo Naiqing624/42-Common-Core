@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:35:32 by nacao             #+#    #+#             */
-/*   Updated: 2025/01/08 15:03:49 by nacao            ###   ########.fr       */
+/*   Updated: 2025/01/09 08:31:49 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	print_movement(t_game *game)
 void	ft_image_to_window(t_game *game, t_image sprite, int y, int x)
 {
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-	sprite.xpm_ptr, x * sprite.x, y * sprite.y);
+		sprite.xpm_ptr, x * sprite.x, y * sprite.y);
 }
 
 void	ft_rendre_player(t_game *game, int y, int x)

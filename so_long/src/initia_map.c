@@ -6,7 +6,7 @@
 /*   By: nacao <nacao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:23:24 by nacao             #+#    #+#             */
-/*   Updated: 2025/01/07 15:04:39 by nacao            ###   ########.fr       */
+/*   Updated: 2025/01/09 08:29:35 by nacao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ void	ft_initia_map(t_game *game, char *argv)
 		ft_error_message("Reading map error", game);
 	map_tmp = ft_strdup("");
 	game->map.rows = 0;
-	while(true)
+	while (true)
 	{
 		line_map = get_next_line(map_fd);
 		if (line_map == NULL)
-			break;
+			break ;
 		map_tmp = ft_strappend(&map_tmp, line_map);
 		free(line_map);
 		game->map.rows++;

@@ -36,10 +36,10 @@
 # define KEY_S				115
 # define KEY_D				100
 
-# define KEY_UP				65362
-# define KEY_LEFT			65361
-# define KEY_DOWN			65364
-# define KEY_RIGHT			62363
+# define KEY_UP  			65362
+# define KEY_LEFT  			65361
+# define KEY_RIGHT 			65363
+# define KEY_DOWN  			65364
 
 # define KEY_ESC			65307
 # define KEY_Q				113
@@ -72,7 +72,7 @@ typedef struct s_image
 	int		y;
 }	t_image;
 
-typedef	struct s_position
+typedef struct s_position
 {
 	int	x;
 	int	y;
